@@ -369,6 +369,50 @@
   @media(prefers-reduced-motion:reduce){
     *{animation-duration:.01ms !important;animation-iteration-count:1 !important}
   }
+
+  /* ===== El fabricante (ISB) ===== */
+  .fab{background:linear-gradient(180deg,#fff,var(--panel-2) 55%,#fff)}
+  .fab-grid{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:800px){.fab-grid{grid-template-columns:repeat(3,1fr)}}
+  .fab-card{
+    background:#fff;border:1px solid var(--line-soft);
+    border-radius:var(--radius);padding:28px 26px;position:relative;
+    box-shadow:0 4px 16px rgba(6,32,21,.05);
+    transition:transform .15s,border-color .15s,box-shadow .15s;
+  }
+  .fab-card:hover{transform:translateY(-3px);border-color:rgba(0,164,90,.35);box-shadow:0 14px 34px rgba(6,32,21,.10)}
+  .fab-card .glow-top{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--neon),transparent);opacity:0;transition:opacity .2s}
+  .fab-card:hover .glow-top{opacity:1}
+  .fab-k{
+    font-family:var(--mono);font-size:13px;color:var(--neon);
+    display:flex;align-items:center;gap:10px;margin-bottom:16px;letter-spacing:.14em;
+  }
+  .fab-k::before{content:"";width:22px;height:1.5px;background:var(--neon);opacity:.7}
+  .fab-card h3{font-size:1.22rem;color:var(--ink);margin-bottom:10px}
+  .fab-card p{color:var(--muted);font-size:.95rem;line-height:1.6;margin-bottom:0}
+  .fab-card p b{color:var(--ink);font-weight:600}
+  .fab-foot{
+    margin-top:28px;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.16em;color:var(--dim);text-transform:uppercase;
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  }
+  .fab-foot::before{content:"";width:26px;height:1px;background:var(--neon);opacity:.7}
+
+  /* galería de fotos ISB (revista InAction) */
+  .fab-photos{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
+  @media(min-width:640px){.fab-photos{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.fab-photos{grid-template-columns:repeat(3,1fr)}}
+  .fab-photo{
+    border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line-soft);
+    box-shadow:0 8px 24px rgba(6,32,21,.07);
+    aspect-ratio:16/9;background:var(--panel);
+  }
+  .fab-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .fab-cap{
+    margin-top:12px;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.14em;color:var(--dim);text-transform:uppercase;
+  }
 </style>
 </head>
 <body>
@@ -537,6 +581,44 @@
   </div>
 </section>
 
+<!-- ============ EL FABRICANTE (ISB) ============ -->
+<section class="fab" id="fabricante">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">02 · El fabricante</div>
+      <h2>Detrás de cada pieza, <span class="grad">un fabricante global</span></h2>
+      <p>Los rodamientos que distribuimos los fabrica <b>ISB Industries</b>: un grupo internacional con ingeniería propia, filiales en varios países y una red de distribución autorizada. Esto es lo que cuenta su revista corporativa InAction N.° 40 (julio 2026).</p>
+    </div>
+    <div class="fab-grid">
+      <article class="fab-card">
+        <div class="glow-top"></div>
+        <div class="fab-k">ISB · 01</div>
+        <h3>Grupo internacional</h3>
+        <p>Filiales y depósitos en varios países para responder rápido. ISB Ibérica, por ejemplo, acaba de ampliar su base en Barcelona a <b>5.500 m²</b> para aumentar stock y agilidad de entrega.</p>
+      </article>
+      <article class="fab-card">
+        <div class="glow-top"></div>
+        <div class="fab-k">ISB · 02</div>
+        <h3>Ingeniería propia</h3>
+        <p>Desarrollo técnico con análisis metrológico de cada aplicación. Caso real de la revista: rodamientos serie 60/62 en <b>acero inoxidable con bolillas cerámicas</b> para industria alimentaria, que resisten lavados agresivos y alta temperatura. ¿Necesitás una solución así? La conseguimos a través del fabricante.</p>
+      </article>
+      <article class="fab-card">
+        <div class="glow-top"></div>
+        <div class="fab-k">ISB · 03</div>
+        <h3>Servicio que gana</h3>
+        <p>Es el lema con el que ISB acompaña a sus distribuidores: servicio que gana. Nosotros lo aplicamos en cada consulta: pieza exacta, asesoramiento y respuesta rápida por WhatsApp o mail.</p>
+      </article>
+    </div>
+    <div class="fab-photos">
+      <div class="fab-photo"><img src="isb-sede-1.jpg" alt="Instalaciones de ISB Ibérica en Barcelona (revista InAction N.° 40)" loading="lazy"></div>
+      <div class="fab-photo"><img src="isb-sede-2.jpg" alt="Depósito de ISB Ibérica ampliado en Barcelona" loading="lazy"></div>
+      <div class="fab-photo"><img src="isb-sede-3.jpg" alt="Centro logístico del grupo ISB" loading="lazy"></div>
+    </div>
+    <div class="fab-cap">Instalaciones del grupo ISB · sede de ISB Ibérica, Barcelona · fotos de la revista InAction N.° 40</div>
+    <div class="fab-foot">Fuente: revista InAction N.° 40 de ISB Industries · julio 2026 · isb-industries.com</div>
+  </div>
+</section>
+
 <!-- ============ QUIÉN ATIENDE ============ -->
 <section class="atiende">
   <div class="wrap atiende-grid">
@@ -553,7 +635,7 @@
       </div>
     </div>
     <div class="atiende-text">
-      <div class="sec-no">02 · Cotizaciones</div>
+      <div class="sec-no">03 · Cotizaciones</div>
       <h2>¿Querés cotizar? <span class="grad">Mandanos tu consulta</span></h2>
       <p>Envíanos lo que necesitás por WhatsApp o por mail: la medida, el código grabado en la pieza o una foto. Te respondemos con precio y disponibilidad.</p>
       <div class="hero-actions" style="margin-bottom:0">
@@ -571,7 +653,7 @@
 <section id="como-pedir">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-no">03 · Protocolo de pedido</div>
+      <div class="sec-no">04 · Protocolo de pedido</div>
       <h2>Cómo pedir una pieza en <span class="grad">3 pasos</span></h2>
       <p>Todo por el mismo canal: WhatsApp.</p>
     </div>
@@ -600,7 +682,7 @@
   <div class="wrap">
     <div class="contact-panel">
       <div>
-        <div class="sec-no" style="margin-bottom:14px">04 · Enlace directo</div>
+        <div class="sec-no" style="margin-bottom:14px">05 · Enlace directo</div>
         <h2>Hablemos de tu pieza</h2>
         <p>Escribí por WhatsApp con la medida o el código que buscás, o mandá un mail si preferís dejarlo por escrito.</p>
         <a class="btn-wa btn-lg" href="https://wa.me/5491136849435?text=Hola%20MJG%20Rodamientos%20%F0%9F%91%8B%20quer%C3%ADa%20hacer%20una%20consulta." target="_blank" rel="noopener">
