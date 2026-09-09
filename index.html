@@ -180,14 +180,6 @@
   .orbit-wrap{position:relative;display:flex;justify-content:center;align-items:center}
   .orbit-wrap svg{width:min(560px,100%);height:auto;filter:drop-shadow(0 14px 30px rgba(0,164,90,.16))}
   @media(max-width:640px){.orbit-wrap svg{width:min(430px,92%)}}
-  .hud-chip{
-    position:absolute;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
-    color:var(--dim);text-transform:uppercase;pointer-events:none;white-space:nowrap;
-  }
-  .hud-chip.tl{top:4%;left:2%}
-  .hud-chip.br{bottom:6%;right:2%;text-align:right}
-  .hud-chip b{color:var(--neon);font-weight:500}
-
   /* ===== Secciones genéricas ===== */
   section{padding:80px 0;position:relative}
   .sec-head{margin-bottom:44px;max-width:70ch}
@@ -459,7 +451,6 @@
     </div>
 
     <div class="orbit-wrap">
-      <div class="hud-chip tl">RODAMIENTO DE BOLAS<br>PISTA EXT. · BOLILLAS · PISTA INT.</div>
       <svg viewBox="0 0 560 560" role="img" aria-label="Rodamiento de bolas de acero, vista frontal">
         <defs>
           <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="15"/></filter>
@@ -527,7 +518,6 @@
         <circle cx="280" cy="280" r="243" fill="none" stroke="rgba(0,164,90,.22)" stroke-width="9"/>
         <circle cx="280" cy="280" r="247" fill="none" stroke="rgba(0,164,90,.55)" stroke-width="1.6" stroke-dasharray="1 12"/>
       </svg>
-      <div class="hud-chip br">GIRO: CONTINUO<br>STOCK · ASESORAMIENTO · ENTREGA</div>
     </div>
   </div>
 </section>
