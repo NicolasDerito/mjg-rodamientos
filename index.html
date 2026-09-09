@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MJG Rodamientos — Soluciones industriales</title>
-<meta name="description" content="MJG Rodamientos S.R.L.: distribuidores oficiales ISB. Soluciones industriales en rodamientos, retenes y correas. Te atiende Mario Gómez por WhatsApp.">
+<meta name="description" content="MJG Rodamientos S.R.L.: distribuidores oficiales ISB. Soluciones industriales en rodamientos, retenes y correas. Cotizá por WhatsApp o mail.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -276,6 +276,16 @@
     display:flex;flex-wrap:wrap;gap:8px 18px;
   }
   .id-card .sig span::before{content:"▸ ";color:var(--neon)}
+  .cotizar-list{list-style:none;margin-top:4px;display:grid}
+  .cotizar-list li{
+    display:flex;gap:16px;align-items:baseline;
+    padding:15px 0;border-top:1px dashed var(--line);
+    font-family:var(--mono);font-size:.95rem;color:var(--muted);
+  }
+  .cotizar-list li:first-child{border-top:none;padding-top:0}
+  .cotizar-list li b{
+    color:var(--neon);font-size:1.02rem;font-weight:600;min-width:32px;
+  }
   .atiende-text h2{font-size:clamp(1.6rem,3.2vw,2.3rem);color:var(--ink);margin-bottom:18px}
   .atiende-text p{color:var(--muted);margin-bottom:16px;max-width:54ch}
   .atiende-text p b{color:var(--ink)}
@@ -323,7 +333,7 @@
   }
   .cline:last-child{border-bottom:1px solid var(--line-soft)}
   .cline .label{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;color:var(--dim);min-width:100px}
-  .cline a{color:var(--text);text-decoration:none}
+  .cline a{color:var(--text);text-decoration:none;overflow-wrap:anywhere}
   .cline a:hover{color:var(--neon)}
 
   /* ===== Footer ===== */
@@ -333,10 +343,14 @@
     padding:34px 0 90px;
     font-size:13px;color:var(--dim);
   }
-  .footer-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
-  footer a{color:var(--muted);text-decoration:none}
+  .footer-grid{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
+  footer a{color:var(--muted);text-decoration:none;overflow-wrap:anywhere;word-break:break-word}
   footer a:hover{color:var(--neon)}
   footer .mono{font-size:11.5px;letter-spacing:.1em}
+  @media(max-width:640px){
+    .footer-grid{flex-direction:column;align-items:flex-start;gap:8px}
+    footer .mono{letter-spacing:.06em;line-height:1.7}
+  }
 
   /* ===== Botón flotante ===== */
   .float-wa{
@@ -385,7 +399,7 @@
   <div class="wrap hero-grid">
     <div>
       <h1>Soluciones industriales que mantienen <span class="grad">todo en movimiento.</span></h1>
-      <p class="lead">Rodamientos, retenes y correas de precisión para que tu industria, tu taller o tu campo <b>no se detengan</b>. Distribuidor oficial ISB, con la atención directa de <b>Mario Gómez</b>.</p>
+      <p class="lead">Rodamientos, retenes y correas de precisión para que tu industria, tu taller o tu campo <b>no se detengan</b>. Distribuidor oficial ISB — <b>cotizá por WhatsApp o por mail</b>.</p>
       <div class="hero-actions">
         <a class="btn-wa btn-lg" href="https://wa.me/5491136849435?text=Hola%20MJG%20Rodamientos%20%F0%9F%91%8B%20necesito%20un%20rodamiento.%20Te%20paso%20la%20medida%20o%20c%C3%B3digo%3A" target="_blank" rel="noopener">
           <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 .8C7.6.8.8 7.6.8 16c0 2.7.7 5.3 2 7.6L.7 31.3l7.9-2.1c2.2 1.2 4.7 1.9 7.4 1.9 8.4 0 15.2-6.8 15.2-15.2S24.4.8 16 .8zm0 27.7c-2.4 0-4.7-.7-6.7-1.9l-.5-.3-4.7 1.2 1.3-4.5-.3-.5A12.6 12.6 0 0 1 3.5 16C3.5 9.1 9.1 3.5 16 3.5S28.5 9.1 28.5 16 22.9 28.5 16 28.5zm7-9.4c-.4-.2-2.3-1.1-2.7-1.2-.3-.1-.6-.2-.8.2-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.7 5.9 5.2.8.3 1.5.5 2 .7.8.3 1.6.2 2.2.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>
@@ -396,86 +410,80 @@
       <div class="hud">
         <span><b>SOLUCIÓN:</b> PIEZA EXACTA, SIN VUELTAS</span>
         <span><b>LÍNEAS:</b> RODAMIENTOS · RETENES · CORREAS</span>
-        <span><b>ATENCIÓN:</b> MARIO GÓMEZ · RESPUESTA DIRECTA</span>
+        <span><b>CANALES:</b> WHATSAPP · MAIL · RESPUESTA RÁPIDA</span>
       </div>
     </div>
 
     <div class="orbit-wrap">
-      <div class="hud-chip tl">DISTRIBUIDOR OFICIAL ISB<br>REPUESTOS PARA INDUSTRIA</div>
-      <svg viewBox="0 0 560 560" role="img" aria-label="Rodamiento como estrella central con planetas en órbita">
+      <div class="hud-chip tl">RODAMIENTO DE BOLAS<br>PISTA EXT. · BOLILLAS · PISTA INT.</div>
+      <svg viewBox="0 0 560 560" role="img" aria-label="Rodamiento de bolas de acero, vista frontal">
         <defs>
-          <radialGradient id="glowSun" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(0,164,90,.30)"/>
-            <stop offset="60%" stop-color="rgba(0,164,90,.06)"/>
-            <stop offset="100%" stop-color="rgba(0,164,90,0)"/>
+          <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="15"/></filter>
+          <linearGradient id="metalFace" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#F6F8FA"/>
+            <stop offset="45%" stop-color="#D6DBE1"/>
+            <stop offset="100%" stop-color="#87909B"/>
+          </linearGradient>
+          <radialGradient id="ballG" cx="33%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="30%" stop-color="#E9EEF3"/>
+            <stop offset="65%" stop-color="#A7B1BC"/>
+            <stop offset="90%" stop-color="#59626D"/>
+            <stop offset="100%" stop-color="#2E353D"/>
           </radialGradient>
-          <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(0,164,90,.45)"/>
-            <stop offset="100%" stop-color="rgba(0,164,90,0)"/>
+          <radialGradient id="gapG" cx="46%" cy="42%" r="72%">
+            <stop offset="0%" stop-color="#39424D"/>
+            <stop offset="100%" stop-color="#10151B"/>
+          </radialGradient>
+          <radialGradient id="holeG" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="#2A323B"/>
+            <stop offset="100%" stop-color="#0A0E12"/>
           </radialGradient>
         </defs>
 
-        <!-- resplandor central -->
-        <circle cx="280" cy="280" r="250" fill="url(#glowSun)">
-          <animate attributeName="opacity" values=".7;1;.7" dur="5s" repeatCount="indefinite"/>
-        </circle>
+        <!-- sombra sobre el fondo -->
+        <circle cx="282" cy="294" r="200" fill="rgba(6,32,21,.28)" filter="url(#softBlur)"/>
 
-        <!-- órbita 1 -->
+        <!-- anillo exterior (banda de acero 199-235) -->
+        <circle cx="280" cy="280" r="217" fill="none" stroke="url(#metalFace)" stroke-width="36"/>
+        <path d="M 55 220 A 233 233 0 0 1 505 220" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="3.5"/>
+        <path d="M 55 340 A 233 233 0 0 0 505 340" fill="none" stroke="#2E3640" stroke-opacity=".5" stroke-width="3.5"/>
+
+        <!-- pista oscura donde corren las bolillas -->
+        <circle cx="280" cy="280" r="199" fill="url(#gapG)"/>
+
+        <!-- anillo interior (banda de acero 88-134) -->
+        <circle cx="280" cy="280" r="111" fill="none" stroke="url(#metalFace)" stroke-width="46"/>
+        <path d="M 151 245 A 134 134 0 0 1 409 245" fill="none" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="2.5"/>
+        <path d="M 151 315 A 134 134 0 0 0 409 315" fill="none" stroke="#2E3640" stroke-opacity=".45" stroke-width="2.5"/>
+
+        <!-- bolillas de acero girando -->
         <g>
-          <circle cx="280" cy="280" r="232" fill="none" stroke="rgba(10,36,25,.22)" stroke-width="1" stroke-dasharray="2 9"/>
+          <animateTransform attributeName="transform" type="rotate" from="0 280 280" to="360 280 280" dur="18s" repeatCount="indefinite"/>
+          <!-- jaula separadora entre bolillas -->
+          <circle cx="280" cy="280" r="160" fill="none" stroke="#B7C1CA" stroke-width="7" stroke-dasharray="45 80" transform="rotate(14 280 280)" opacity=".8"/>
           <g>
-            <animateTransform attributeName="transform" type="rotate" from="0 280 280" to="360 280 280" dur="46s" repeatCount="indefinite"/>
-            <circle cx="280" cy="48" r="6" fill="#00A45A"/>
-            <circle cx="280" cy="48" r="12" fill="none" stroke="rgba(0,164,90,.4)" stroke-width="1"/>
+            <circle cx="440" cy="280" r="26" fill="url(#ballG)"/>
+            <circle cx="393" cy="393" r="26" fill="url(#ballG)"/>
+            <circle cx="280" cy="440" r="26" fill="url(#ballG)"/>
+            <circle cx="167" cy="393" r="26" fill="url(#ballG)"/>
+            <circle cx="120" cy="280" r="26" fill="url(#ballG)"/>
+            <circle cx="167" cy="167" r="26" fill="url(#ballG)"/>
+            <circle cx="280" cy="120" r="26" fill="url(#ballG)"/>
+            <circle cx="393" cy="167" r="26" fill="url(#ballG)"/>
           </g>
         </g>
 
-        <!-- órbita 2 -->
-        <g>
-          <ellipse cx="280" cy="280" rx="255" ry="96" fill="none" stroke="rgba(10,36,25,.18)" stroke-width="1" stroke-dasharray="1 7" transform="rotate(-18 280 280)"/>
-          <g transform="rotate(-18 280 280)">
-            <animateTransform attributeName="transform" type="rotate" from="0 280 280" to="-360 280 280" dur="30s" repeatCount="indefinite"/>
-            <circle cx="535" cy="280" r="5" fill="#0B3B26"/>
-            <circle cx="535" cy="280" r="10" fill="none" stroke="rgba(0,164,90,.45)" stroke-width="1"/>
-          </g>
-        </g>
+        <!-- agujero central del rodamiento -->
+        <circle cx="280" cy="280" r="88" fill="url(#holeG)"/>
+        <path d="M 197 250 A 88 88 0 0 1 363 250" fill="none" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="2"/>
+        <path d="M 197 310 A 88 88 0 0 0 363 310" fill="none" stroke="#000000" stroke-opacity=".45" stroke-width="2"/>
 
-        <!-- órbita 3 con planeta "rodamiento" -->
-        <g>
-          <ellipse cx="280" cy="280" rx="196" ry="212" fill="none" stroke="rgba(10,36,25,.14)" stroke-width="1" stroke-dasharray="3 10" transform="rotate(24 280 280)"/>
-          <g transform="rotate(24 280 280)">
-            <animateTransform attributeName="transform" type="rotate" from="0 280 280" to="360 280 280" dur="64s" repeatCount="indefinite"/>
-            <circle cx="476" cy="280" r="9" fill="none" stroke="#00A45A" stroke-width="1.6"/>
-            <circle cx="476" cy="280" r="3.2" fill="#0A2419"/>
-            <circle cx="476" cy="270" r="2" fill="#00A45A"/>
-            <circle cx="486" cy="282" r="2" fill="#00A45A"/>
-          </g>
-        </g>
-
-        <!-- sol = rodamiento gigante -->
-        <circle cx="280" cy="280" r="128" fill="url(#halo)"/>
-        <circle cx="280" cy="280" r="104" fill="none" stroke="#00A45A" stroke-width="2.5"/>
-        <circle cx="280" cy="280" r="80" fill="none" stroke="rgba(0,164,90,.4)" stroke-width="1.2"/>
-        <circle cx="280" cy="280" r="92" fill="none" stroke="rgba(0,164,90,.35)" stroke-width="1" stroke-dasharray="2 7"/>
-        <!-- bolillas del rodamiento girando -->
-        <g>
-          <animateTransform attributeName="transform" type="rotate" from="0 280 280" to="360 280 280" dur="14s" repeatCount="indefinite"/>
-          <g fill="#0B3B26">
-            <circle cx="280" cy="188" r="9"/>
-            <circle cx="369" cy="223" r="9"/>
-            <circle cx="369" cy="337" r="9"/>
-            <circle cx="280" cy="372" r="9"/>
-            <circle cx="191" cy="337" r="9"/>
-            <circle cx="191" cy="223" r="9"/>
-          </g>
-        </g>
-        <!-- centro -->
-        <circle cx="280" cy="280" r="34" fill="none" stroke="#00A45A" stroke-width="1.6" opacity=".85"/>
-        <circle cx="280" cy="280" r="6" fill="#00A45A">
-          <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-        </circle>
+        <!-- anillo de acento verde de la marca -->
+        <circle cx="280" cy="280" r="243" fill="none" stroke="rgba(0,164,90,.22)" stroke-width="9"/>
+        <circle cx="280" cy="280" r="247" fill="none" stroke="rgba(0,164,90,.55)" stroke-width="1.6" stroke-dasharray="1 12"/>
       </svg>
-      <div class="hud-chip br">SOLUCIONES ISB<br>STOCK · ASESORAMIENTO · ENTREGA</div>
+      <div class="hud-chip br">GIRO: CONTINUO<br>STOCK · ASESORAMIENTO · ENTREGA</div>
     </div>
   </div>
 </section>
@@ -533,20 +541,28 @@
 <section class="atiende">
   <div class="wrap atiende-grid">
     <div class="id-card">
-      <div class="chip"><span class="dot"></span>OPERADOR HUMANO · RESPONSABLE</div>
-      <div class="name">Mario Gómez</div>
-      <div class="role">Dueño y único vendedor</div>
-      <p class="quote">Si te atiendo yo, sé exactamente qué tengo en el estante y qué te puedo conseguir para mañana.</p>
+      <div class="chip"><span class="dot"></span>COTIZÁ FÁCIL</div>
+      <ul class="cotizar-list">
+        <li><b>01</b> Mandá medida, código o foto de la pieza</li>
+        <li><b>02</b> Te pasamos precio y disponibilidad</li>
+        <li><b>03</b> Coordinamos entrega o retiro</li>
+      </ul>
       <div class="sig">
-        <span>CONSULTA → STOCK → ENTREGA</span>
-        <span>UN SOLO INTERLOCUTOR</span>
+        <span>ATENCIÓN: LUN A VIE · 9 A 17 HS</span>
+        <span>WHATSAPP · MAIL</span>
       </div>
     </div>
     <div class="atiende-text">
-      <div class="sec-no">02 · Quién te atiende</div>
-      <h2>Un solo operador, <span class="grad">de la consulta a la entrega</span></h2>
-      <p>MJG Rodamientos no reparte tu consulta entre distintos vendedores. <b>Mario responde cada mensaje</b>, verifica la pieza contra el plano o la muestra que le mandes, y te confirma precio y disponibilidad antes de que te muevas.</p>
-      <p>Si la medida no está en stock, te dice el plazo real de reposición: sin promesas genéricas. Precisión de fábrica, atención de persona.</p>
+      <div class="sec-no">02 · Cotizaciones</div>
+      <h2>¿Querés cotizar? <span class="grad">Mandanos tu consulta</span></h2>
+      <p>Envíanos lo que necesitás por WhatsApp o por mail: la medida, el código grabado en la pieza o una foto. Te respondemos con precio y disponibilidad.</p>
+      <div class="hero-actions" style="margin-bottom:0">
+        <a class="btn-wa btn-lg" href="https://wa.me/5491136849435?text=Hola%20MJG%20Rodamientos%20%F0%9F%91%8B%20quiero%20cotizar%3A%20te%20paso%20medida%20o%20c%C3%B3digo%20de%20la%20pieza." target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 .8C7.6.8.8 7.6.8 16c0 2.7.7 5.3 2 7.6L.7 31.3l7.9-2.1c2.2 1.2 4.7 1.9 7.4 1.9 8.4 0 15.2-6.8 15.2-15.2S24.4.8 16 .8zm0 27.7c-2.4 0-4.7-.7-6.7-1.9l-.5-.3-4.7 1.2 1.3-4.5-.3-.5A12.6 12.6 0 0 1 3.5 16C3.5 9.1 9.1 3.5 16 3.5S28.5 9.1 28.5 16 22.9 28.5 16 28.5zm7-9.4c-.4-.2-2.3-1.1-2.7-1.2-.3-.1-.6-.2-.8.2-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.7 5.9 5.2.8.3 1.5.5 2 .7.8.3 1.6.2 2.2.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+        <a class="btn-ghost" href="mailto:ventas@mjgrodamientos.com.ar?subject=Cotizaci%C3%B3n%20MJG%20Rodamientos">✉️ Cotizar por mail</a>
+      </div>
     </div>
   </div>
 </section>
@@ -568,7 +584,7 @@
       <div class="step">
         <div class="n"><b>PASO_02</b> · VERIFICACIÓN</div>
         <h3>Confirmamos stock y precio</h3>
-        <p>Mario revisa el estante y te responde con precio, marca disponible y tiempo de entrega si hay que pedirlo.</p>
+        <p>Revisamos el stock real y te respondemos con precio, marca disponible y tiempo de entrega si hay que pedirlo.</p>
       </div>
       <div class="step">
         <div class="n"><b>PASO_03</b> · DESPLIEGUE</div>
@@ -589,13 +605,13 @@
         <p>Escribí por WhatsApp con la medida o el código que buscás, o mandá un mail si preferís dejarlo por escrito.</p>
         <a class="btn-wa btn-lg" href="https://wa.me/5491136849435?text=Hola%20MJG%20Rodamientos%20%F0%9F%91%8B%20quer%C3%ADa%20hacer%20una%20consulta." target="_blank" rel="noopener">
           <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 .8C7.6.8.8 7.6.8 16c0 2.7.7 5.3 2 7.6L.7 31.3l7.9-2.1c2.2 1.2 4.7 1.9 7.4 1.9 8.4 0 15.2-6.8 15.2-15.2S24.4.8 16 .8zm0 27.7c-2.4 0-4.7-.7-6.7-1.9l-.5-.3-4.7 1.2 1.3-4.5-.3-.5A12.6 12.6 0 0 1 3.5 16C3.5 9.1 9.1 3.5 16 3.5S28.5 9.1 28.5 16 22.9 28.5 16 28.5zm7-9.4c-.4-.2-2.3-1.1-2.7-1.2-.3-.1-.6-.2-.8.2-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.7 5.9 5.2.8.3 1.5.5 2 .7.8.3 1.6.2 2.2.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>
-          Escribir a Mario por WhatsApp
+          Escribinos por WhatsApp
         </a>
       </div>
       <div class="contact-lines">
         <div class="cline"><span class="label">WHATSAPP</span><a href="https://wa.me/5491136849435" target="_blank" rel="noopener">11 3684-9435</a></div>
         <div class="cline"><span class="label">MAIL</span><a href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a></div>
-        <div class="cline"><span class="label">ATENCIÓN</span><span>Lun a Vie · 9 a 18 hs</span></div>
+        <div class="cline"><span class="label">ATENCIÓN</span><span>Lun a Vie · 9 a 17 hs</span></div>
         <div class="cline"><span class="label">ORIGEN</span><span>MJG Rodamientos S.R.L.</span></div>
       </div>
     </div>
@@ -605,8 +621,8 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap footer-grid">
-    <span class="mono">MJG RODAMIENTOS S.R.L. · MARIO GÓMEZ · DISTRIBUIDOR OFICIAL ISB</span>
-    <span class="mono"><a href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a> · <a href="https://wa.me/5491136849435" target="_blank" rel="noopener">11 3684-9435</a></span>
+    <span class="mono">MJG RODAMIENTOS S.R.L. · DISTRIBUIDOR OFICIAL ISB</span>
+    <span class="mono"><a href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a><br><a href="https://wa.me/5491136849435" target="_blank" rel="noopener">WhatsApp: 11 3684-9435</a></span>
   </div>
 </footer>
 
