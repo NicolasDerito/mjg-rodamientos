@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJG Rodamientos — Rodamientos, retenes y correas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Paleta acoplada al logo MJG: verde profundo #003020/#004020 + negro + blanco */
+    --charcoal:#0C2B1E;   /* verde-negro (header/hero/contacto) */
+    --charcoal-2:#062015;
+    --steel:#3A4A40;
+    --paper:#F5F4EF;      /* casi blanco, como el fondo del logo */
+    --paper-2:#EAE8E0;
+    --line:#D5D2C8;
+    --line-dark:#2E4F3E;
+    --brass:#0E4F33;      /* verde del logo #004020 */
+    --brass-hi:#157A4D;
+    --brass-dim:#0B3B26;  /* verde profundo #003020 */
+    --mint:#4CC48A;       /* verde claro para acentos sobre oscuro */
+    --silver:#B7C4BB;
+    --white:#FFFFFF;
+    --ink:#131814;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+    line-height:1.08;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(180deg,var(--charcoal-2),var(--charcoal));
+    border-bottom:1px solid var(--line-dark);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;
+    max-width:1140px;margin:0 auto;
+  }
+  .logo{
+    display:flex;align-items:center;
+  }
+  .logo img{
+    height:72px;width:auto;
+    background:var(--white);
+    padding:8px 14px;
+    border-radius:6px;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);
+  }
+  @media(max-width:640px){.logo img{height:54px;padding:6px 10px;}}
+  .isb-strip{
+    background:var(--paper-2);
+    border-bottom:1px solid var(--line);
+    padding:9px 0;
+  }
+  .isb-strip .wrap{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    font-size:13px;color:var(--brass-dim);font-weight:500;
+    text-align:center;
+  }
+  .isb-strip .dot{
+    width:5px;height:5px;border-radius:50%;background:var(--mint);flex:none;
+  }
+  .header-cta{
+    display:flex;align-items:center;gap:18px;
+  }
+  .header-cta a.link{
+    font-size:14px;color:#BFD2C4;text-decoration:none;
+    display:none;
+  }
+  @media(min-width:640px){.header-cta a.link{display:inline;}}
+  .btn-whatsapp{
+    background:var(--brass);
+    color:var(--white);
+    font-family:'IBM Plex Sans',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:10px 18px;
+    border-radius:3px;
+    text-decoration:none;
+    white-space:nowrap;
+    border:1px solid rgba(255,255,255,.14);
+  }
+  .btn-whatsapp:hover{background:var(--brass-hi);}
+
+  /* Hero */
+  .hero{
+    background:radial-gradient(1000px 420px at 88% -10%,rgba(76,196,138,.16),transparent 60%),linear-gradient(150deg,var(--charcoal-2) 0%,var(--charcoal) 55%,var(--brass-dim) 130%);
+    color:var(--paper);
+    padding:64px 0 76px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media(min-width:860px){
+    .hero-grid{grid-template-columns:1.05fr 0.95fr;gap:40px;}
+  }
+  .hero-eyebrow{
+    color:var(--mint);
+    font-size:15px;
+    font-weight:500;
+    letter-spacing:.02em;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:44px;
+    color:var(--white);
+    margin-bottom:18px;
+  }
+  @media(min-width:640px){.hero h1{font-size:56px;}}
+  .hero p{
+    font-size:17px;
+    color:#BCCFC1;
+    max-width:46ch;
+    margin-bottom:30px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
+  .btn-outline{
+    border:1px solid #3E5A4C;
+    color:var(--paper);
+    padding:11px 20px;
+    border-radius:3px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+  }
+  .btn-outline:hover{border-color:var(--mint);color:var(--mint);}
+
+  /* Logo grande en la portada */
+  .hero-brand{
+    background:var(--white);
+    border-radius:10px;
+    padding:16px 22px;
+    width:min(400px,100%);
+    box-shadow:0 18px 50px rgba(0,0,0,.35);
+    margin-bottom:26px;
+  }
+  .hero-brand img{width:100%;height:auto;}
+  .bearing-wrap{display:flex;justify-content:center;align-items:center;}
+
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .bearing-inner-group{
+    transform-origin:50% 50%;
+    animation:spin 22s linear infinite;
+  }
+  @media(prefers-reduced-motion:reduce){
+    .bearing-inner-group{animation:none;}
+  }
+
+  /* Section basics */
+  section{padding:72px 0;}
+  .section-head{max-width:60ch;margin-bottom:40px;}
+  .section-head h2{font-size:32px;margin-bottom:12px;}
+  .section-head p{color:var(--steel);font-size:16px;}
+
+  /* Rubros */
+  .rubros{
+    display:grid;grid-template-columns:1fr;
+  }
+  @media(min-width:760px){
+    .rubros{grid-template-columns:repeat(3,1fr);}
+  }
+  .rubro{
+    border-top:1px solid var(--line);
+    padding:28px 0;
+  }
+  @media(min-width:760px){
+    .rubro{
+      border-top:1px solid var(--line);
+      border-left:1px solid var(--line);
+      padding:6px 32px 6px;
+    }
+    .rubro:first-child{border-left:none;padding-left:0;}
+  }
+  .rubro .num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--brass-dim);
+    font-size:13px;
+    display:block;
+    margin-bottom:14px;
+  }
+  .rubro h3{font-size:22px;margin-bottom:10px;}
+  .rubro p{color:var(--steel);font-size:15px;margin-bottom:14px;}
+  .rubro ul{list-style:none;color:var(--steel);font-size:14px;}
+  .rubro li{padding:4px 0;border-top:1px solid var(--line);}
+  .rubro li:first-child{border-top:none;}
+
+  /* Quien atiende */
+  .atiende{background:var(--white);}
+  .atiende-grid{
+    display:grid;grid-template-columns:1fr;gap:40px;align-items:center;
+  }
+  @media(min-width:800px){
+    .atiende-grid{grid-template-columns:0.85fr 1.15fr;gap:56px;}
+  }
+  .atiende-figure{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    padding:40px;
+    display:flex;flex-direction:column;align-items:flex-start;
+    gap:18px;
+  }
+  .atiende-figure .name{
+    font-family:'Oswald',sans-serif;font-size:26px;font-weight:600;
+  }
+  .atiende-figure .role{
+    color:var(--brass-dim);font-size:14px;font-weight:500;
+  }
+  .atiende-figure .quote{
+    font-size:16px;color:var(--steel);border-left:2px solid var(--brass);padding-left:16px;
+  }
+  .atiende-text h2{font-size:30px;margin-bottom:18px;}
+  .atiende-text p{color:var(--steel);margin-bottom:16px;max-width:52ch;}
+
+  /* Como pedir */
+  .pasos{
+    display:grid;grid-template-columns:1fr;gap:0;
+  }
+  @media(min-width:760px){
+    .pasos{grid-template-columns:repeat(3,1fr);}
+  }
+  .paso{
+    padding:26px 0;
+    border-top:1px solid var(--line);
+    position:relative;
+  }
+  @media(min-width:760px){
+    .paso{border-top:none;border-left:1px solid var(--line);padding:0 28px;}
+    .paso:first-child{border-left:none;padding-left:0;}
+  }
+  .paso .step{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;color:var(--brass-dim);margin-bottom:10px;display:block;
+  }
+  .paso h3{font-size:19px;margin-bottom:8px;}
+  .paso p{color:var(--steel);font-size:15px;}
+
+  /* Contacto */
+  .contacto{
+    background:var(--charcoal);color:var(--paper);
+  }
+  .contacto-grid{
+    display:grid;grid-template-columns:1fr;gap:36px;
+  }
+  @media(min-width:760px){
+    .contacto-grid{grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;}
+  }
+  .contacto h2{color:var(--white);font-size:32px;margin-bottom:16px;}
+  .contacto>.contacto-grid>div:first-child p{color:#BCCFC1;max-width:44ch;margin-bottom:28px;}
+  .contact-line{
+    display:flex;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid var(--line-dark);
+  }
+  .contact-line:last-child{border-bottom:1px solid var(--line-dark);}
+  .contact-line .label{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:#86A091;min-width:96px;
+  }
+  .contact-line a{color:var(--paper);text-decoration:none;font-size:16px;}
+  .contact-line a:hover{color:var(--mint);}
+  .big-whatsapp{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--brass);color:var(--white);
+    padding:18px 26px;border-radius:2px;text-decoration:none;
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:19px;
+    margin-top:8px;
+  }
+  .big-whatsapp:hover{background:var(--brass-hi);}
+  .big-whatsapp small{
+    display:block;font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:12px;color:#DCEFE4;
+  }
+
+  /* Footer */
+  footer{
+    background:var(--charcoal-2);color:#86A091;padding:32px 0;
+    font-size:13px;
+    border-top:1px solid var(--line-dark);
+  }
+  .footer-grid{
+    display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+  }
+  footer a{color:#A8C6B2;text-decoration:none;}
+  footer a:hover{color:var(--mint);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <img src="mjg-logo.jpeg" alt="MJG Rodamientos S.R.L.">
+    </div>
+    <div class="header-cta">
+      <a class="link" href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a>
+      <a class="btn-whatsapp" href="https://wa.me/5491136849435" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+  </div>
+</header>
+<div class="isb-strip">
+  <div class="wrap">
+    <span class="dot"></span>
+    <span>Distribuidores oficiales de ISB Rodamientos</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-brand">
+        <img src="mjg-logo.jpeg" alt="MJG Rodamientos S.R.L.">
+      </div>
+      <div class="hero-eyebrow">Distribuidores oficiales ISB · Rodamientos, retenes y correas</div>
+      <h1>Repuestos industriales, atendidos por quien los conoce.</h1>
+      <p>Mario Gómez atiende cada consulta en persona: busca la medida exacta, confirma stock real y te dice cuándo lo tenés en mano. Sin cadena de call center de por medio.</p>
+      <div class="hero-actions">
+        <a class="btn-whatsapp" href="https://wa.me/5491136849435" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn-outline" href="#rubros">Ver qué vendemos</a>
+      </div>
+    </div>
+    <div class="bearing-wrap">
+      <svg width="380" height="380" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Esquema de un rodamiento a bolillas">
+        <circle cx="210" cy="210" r="188" fill="none" stroke="var(--mint)" stroke-width="2"/>
+        <circle cx="210" cy="210" r="150" fill="none" stroke="#3E5A4C" stroke-width="1"/>
+        <g class="bearing-inner-group">
+          <circle cx="210" cy="210" r="150" fill="none" stroke="var(--silver)" stroke-width="1.4" stroke-dasharray="2 6"/>
+          <g>
+            <circle cx="210" cy="60"  r="13" fill="var(--silver)"/>
+            <circle cx="360" cy="210" r="13" fill="var(--silver)"/>
+            <circle cx="210" cy="360" r="13" fill="var(--silver)"/>
+            <circle cx="60"  cy="210" r="13" fill="var(--silver)"/>
+            <circle cx="316" cy="104" r="13" fill="var(--silver)"/>
+            <circle cx="316" cy="316" r="13" fill="var(--silver)"/>
+            <circle cx="104" cy="316" r="13" fill="var(--silver)"/>
+            <circle cx="104" cy="104" r="13" fill="var(--silver)"/>
+          </g>
+        </g>
+        <circle cx="210" cy="210" r="46" fill="none" stroke="var(--mint)" stroke-width="2"/>
+        <circle cx="210" cy="210" r="8" fill="var(--mint)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="rubros">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Qué vendemos</h2>
+      <p>Tres líneas de repuestos, todas con marcas de fábrica reconocidas y medida exacta antes de facturar.</p>
+    </div>
+    <div class="rubros">
+      <div class="rubro">
+        <span class="num mono">01</span>
+        <h3>Rodamientos</h3>
+        <p>Rígidos de bolillas, a rodillos cónicos, autoalineantes y de agujas. Distribuidores oficiales de la marca ISB para toda la línea.</p>
+        <ul>
+          <li>Serie 6000, 6200, 6300</li>
+          <li>Rodillos cónicos serie 30000</li>
+          <li>Unidades de pie (UCP, UCF)</li>
+        </ul>
+      </div>
+      <div class="rubro">
+        <span class="num mono">02</span>
+        <h3>Retenes</h3>
+        <p>Retenes de simple y doble labio para ejes, cajas reductoras y bombas, en NBR y Vitón.</p>
+        <ul>
+          <li>Medidas a pedido por eje/tapa</li>
+          <li>NBR uso general</li>
+          <li>Vitón para alta temperatura</li>
+        </ul>
+      </div>
+      <div class="rubro">
+        <span class="num mono">03</span>
+        <h3>Correas</h3>
+        <p>Correas trapezoidales, dentadas y poly-V para transmisión industrial y agrícola.</p>
+        <ul>
+          <li>Perfiles A, B, C, 3V, 5V</li>
+          <li>Dentadas para sincronismo</li>
+          <li>Poly-V multicanal</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="atiende">
+  <div class="wrap atiende-grid">
+    <div class="atiende-figure">
+      <div class="name">Mario Gómez</div>
+      <div class="role">Dueño y único vendedor</div>
+      <p class="quote">Si te atiendo yo, sé exactamente qué tengo en el estante y qué te puedo conseguir para mañana.</p>
+    </div>
+    <div class="atiende-text">
+      <h2>Un solo interlocutor, de la consulta a la entrega</h2>
+      <p>MJG Rodamientos no reparte tu consulta entre distintos vendedores. Mario responde cada mensaje, verifica la pieza contra el plano o la muestra que le mandes, y te confirma precio y disponibilidad antes de que te muevas.</p>
+      <p>Si la medida no está en stock, te dice el plazo real de reposición: sin promesas genéricas.</p>
+    </div>
+  </div>
+</section>
+
+<section id="como-pedir">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cómo pedir una pieza</h2>
+      <p>Tres pasos, todos por el mismo canal.</p>
+    </div>
+    <div class="pasos">
+      <div class="paso">
+        <span class="step mono">Paso 1</span>
+        <h3>Contás qué necesitás</h3>
+        <p>Por WhatsApp, con la medida, el código grabado en la pieza vieja o una foto. Cuanto más dato, más rápida la respuesta.</p>
+      </div>
+      <div class="paso">
+        <span class="step mono">Paso 2</span>
+        <h3>Confirmamos stock y precio</h3>
+        <p>Mario revisa el estante y te responde con precio, marca disponible y tiempo de entrega si hay que pedirlo.</p>
+      </div>
+      <div class="paso">
+        <span class="step mono">Paso 3</span>
+        <h3>Retirás o te lo enviamos</h3>
+        <p>Coordinamos el retiro o el envío según dónde estés. Vos elegís.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="wrap contacto-grid">
+    <div>
+      <h2>Hablemos de tu pieza</h2>
+      <p>Escribí por WhatsApp con la medida o el código de la pieza que buscás, o mandá un mail si preferís dejarlo por escrito.</p>
+      <a class="big-whatsapp" href="https://wa.me/5491136849435" target="_blank" rel="noopener">
+        Escribir a Mario por WhatsApp
+      </a>
+    </div>
+    <div>
+      <div class="contact-line">
+        <span class="label mono">WHATSAPP</span>
+        <a href="https://wa.me/5491136849435" target="_blank" rel="noopener">11 3684-9435</a>
+      </div>
+      <div class="contact-line">
+        <span class="label mono">MAIL</span>
+        <a href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a>
+      </div>
+      <div class="contact-line">
+        <span class="label mono">ATENCIÓN</span>
+        <span>Lunes a viernes, 9 a 18 hs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <span>MJG Rodamientos S.R.L. — Mario Gómez · Distribuidores oficiales ISB</span>
+    <span><a href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a> · <a href="https://wa.me/5491136849435" target="_blank" rel="noopener">11 3684-9435</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
