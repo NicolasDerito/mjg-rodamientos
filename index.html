@@ -402,6 +402,9 @@
     aspect-ratio:16/9;background:var(--panel);
   }
   .fab-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .fab-photos.solo{grid-template-columns:1fr;justify-items:center}
+  .fab-photos.solo .fab-photo{width:min(420px,100%);aspect-ratio:auto}
+  .fab-photos.solo .fab-photo img{height:auto}
   .fab-cap{
     margin-top:12px;font-family:var(--mono);font-size:10.5px;
     letter-spacing:.14em;color:var(--dim);text-transform:uppercase;
@@ -534,12 +537,10 @@
         <p>Es el lema con el que ISB acompaña a sus distribuidores: servicio que gana. Nosotros lo aplicamos en cada consulta: pieza exacta, asesoramiento y respuesta rápida por WhatsApp o mail.</p>
       </article>
     </div>
-    <div class="fab-photos">
-      <div class="fab-photo"><img src="isb-sede-1.jpg" alt="Instalaciones de ISB Ibérica en Barcelona (revista InAction N.° 40)" loading="lazy"></div>
-      <div class="fab-photo"><img src="isb-sede-2.jpg" alt="Depósito de ISB Ibérica ampliado en Barcelona" loading="lazy"></div>
-      <div class="fab-photo"><img src="isb-sede-3.jpg" alt="Centro logístico del grupo ISB" loading="lazy"></div>
+    <div class="fab-photos solo">
+      <div class="fab-photo"><img src="isb-iberica.jpg" alt="Instalaciones de ISB Ibérica" loading="lazy"></div>
     </div>
-    <div class="fab-cap">Instalaciones del grupo ISB · sede de ISB Ibérica, Barcelona · fotos de la revista InAction N.° 40</div>
+    <div class="fab-cap">Instalaciones de ISB Ibérica</div>
     <div class="fab-foot">Fuente: revista InAction N.° 40 de ISB Industries · julio 2026 · isb-industries.com</div>
   </div>
 </section>
