@@ -176,35 +176,47 @@
   }
   .hud span b{color:var(--muted);font-weight:500}
 
-  /* ===== Hero: foto real de rodamiento que se despieza ===== */
+  /* ===== Hero: foto real de rodamiento, despiece 3D ===== */
   .orbit-wrap{position:relative;display:flex;justify-content:center;align-items:center;min-width:0}
-  .bearing-stack{position:relative;width:100%;max-width:490px;aspect-ratio:1/1;margin:0 auto}
-  .bearing-stack .bd{
-    position:absolute;inset:0;width:100%;height:100%;display:block;
-    will-change:transform;
-    filter:drop-shadow(0 16px 26px rgba(6,32,21,.16));
+  .bearing-stage{
+    position:relative;width:100%;max-width:440px;aspect-ratio:1/1;margin:0 auto;
+    perspective:2000px;display:grid;place-items:center;isolation:isolate;
   }
+  .bearing-stage::after{
+    content:"";position:absolute;left:14%;right:14%;bottom:3%;height:8%;border-radius:50%;
+    background:radial-gradient(ellipse at center,rgba(6,32,21,.30),rgba(6,32,21,0) 70%);
+    filter:blur(7px);z-index:-1;
+  }
+  .bearing-tilt{width:100%;height:100%;transform-style:preserve-3d;animation:bpTilt 16s cubic-bezier(.45,.05,.3,1) infinite}
+  .bearing-disc{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:bpSpin 70s linear infinite}
+  .bearing-disc .bd{position:absolute;inset:0;width:100%;height:100%;display:block;will-change:transform}
   .bd-outer{animation:bpOuter 16s cubic-bezier(.45,.05,.3,1) infinite}
   .bd-balls{animation:bpBalls 16s cubic-bezier(.45,.05,.3,1) infinite}
   .bd-inner{animation:bpInner 16s cubic-bezier(.45,.05,.3,1) infinite}
+  @keyframes bpTilt{
+    0%,4%{transform:rotateX(0deg)}
+    22%,58%{transform:rotateX(54deg)}
+    80%,100%{transform:rotateX(0deg)}
+  }
+  @keyframes bpSpin{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
   @keyframes bpOuter{
-    0%,4%{transform:scale(1)}
-    22%,58%{transform:scale(1.12)}
-    80%,100%{transform:scale(1)}
+    0%,4%{transform:translateZ(0)}
+    22%,58%{transform:translateZ(96px)}
+    80%,100%{transform:translateZ(0)}
   }
   @keyframes bpBalls{
-    0%,4%{transform:rotate(0deg) scale(1)}
-    22%,58%{transform:rotate(16deg) scale(1.015)}
-    74%{transform:rotate(6deg) scale(1)}
-    80%,100%{transform:rotate(0deg) scale(1)}
+    0%,4%{transform:rotateZ(0deg) translateZ(0)}
+    22%,58%{transform:rotateZ(24deg) translateZ(0)}
+    74%{transform:rotateZ(9deg) translateZ(0)}
+    80%,100%{transform:rotateZ(0deg) translateZ(0)}
   }
   @keyframes bpInner{
-    0%,4%{transform:scale(1) rotate(0deg)}
-    22%,58%{transform:scale(.78) rotate(-14deg)}
-    80%,100%{transform:scale(1) rotate(0deg)}
+    0%,4%{transform:rotateZ(0deg) translateZ(0)}
+    22%,58%{transform:rotateZ(-18deg) translateZ(-96px)}
+    80%,100%{transform:rotateZ(0deg) translateZ(0)}
   }
-  @media(max-width:640px){.bearing-stack{max-width:min(340px,86%)}}
-  @media(prefers-reduced-motion:reduce){.bd-outer,.bd-balls,.bd-inner{animation:none}}
+  @media(max-width:640px){.bearing-stage{max-width:min(340px,86%)}}
+  @media(prefers-reduced-motion:reduce){.bearing-tilt,.bearing-disc,.bd-outer,.bd-balls,.bd-inner{animation:none}}
 
   /* ===== Secciones genéricas ===== */
   section{padding:80px 0;position:relative}
@@ -477,10 +489,14 @@
     </div>
 
             <div class="orbit-wrap">
-      <div class="bearing-stack" role="img" aria-label="Animación de un rodamiento de bolas de acero que se despieza en pista exterior, bolillas con jaula y pista interior, y vuelve a armarse">
-        <img class="bd bd-outer" src="rod-pista-exterior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
-        <img class="bd bd-balls" src="rod-bolillas.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
-        <img class="bd bd-inner" src="rod-pista-interior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
+      <div class="bearing-stage" role="img" aria-label="Animación en vista explosionada de un rodamiento de bolas de acero: la pista exterior, las bolillas con jaula y la pista interior se separan y vuelven a armarse">
+        <div class="bearing-tilt">
+          <div class="bearing-disc">
+            <img class="bd bd-outer" src="rod-pista-exterior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
+            <img class="bd bd-balls" src="rod-bolillas.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
+            <img class="bd bd-inner" src="rod-pista-interior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
+          </div>
+        </div>
       </div>
     </div>
   </div>
