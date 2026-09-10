@@ -176,10 +176,36 @@
   }
   .hud span b{color:var(--muted);font-weight:500}
 
-  /* Sistema orbital SVG */
-  .orbit-wrap{position:relative;display:flex;justify-content:center;align-items:center}
-  .orbit-wrap svg{width:min(560px,100%);height:auto;filter:drop-shadow(0 14px 30px rgba(0,164,90,.16))}
-  @media(max-width:640px){.orbit-wrap svg{width:min(430px,92%)}}
+  /* ===== Hero: foto real de rodamiento que se despieza ===== */
+  .orbit-wrap{position:relative;display:flex;justify-content:center;align-items:center;min-width:0}
+  .bearing-stack{position:relative;width:100%;max-width:490px;aspect-ratio:1/1;margin:0 auto}
+  .bearing-stack .bd{
+    position:absolute;inset:0;width:100%;height:100%;display:block;
+    will-change:transform;
+    filter:drop-shadow(0 16px 26px rgba(6,32,21,.16));
+  }
+  .bd-outer{animation:bpOuter 16s cubic-bezier(.45,.05,.3,1) infinite}
+  .bd-balls{animation:bpBalls 16s cubic-bezier(.45,.05,.3,1) infinite}
+  .bd-inner{animation:bpInner 16s cubic-bezier(.45,.05,.3,1) infinite}
+  @keyframes bpOuter{
+    0%,4%{transform:scale(1)}
+    22%,58%{transform:scale(1.12)}
+    80%,100%{transform:scale(1)}
+  }
+  @keyframes bpBalls{
+    0%,4%{transform:rotate(0deg) scale(1)}
+    22%,58%{transform:rotate(16deg) scale(1.015)}
+    74%{transform:rotate(6deg) scale(1)}
+    80%,100%{transform:rotate(0deg) scale(1)}
+  }
+  @keyframes bpInner{
+    0%,4%{transform:scale(1) rotate(0deg)}
+    22%,58%{transform:scale(.78) rotate(-14deg)}
+    80%,100%{transform:scale(1) rotate(0deg)}
+  }
+  @media(max-width:640px){.bearing-stack{max-width:min(340px,86%)}}
+  @media(prefers-reduced-motion:reduce){.bd-outer,.bd-balls,.bd-inner{animation:none}}
+
   /* ===== Secciones genéricas ===== */
   section{padding:80px 0;position:relative}
   .sec-head{margin-bottom:44px;max-width:70ch}
@@ -450,74 +476,12 @@
       </div>
     </div>
 
-    <div class="orbit-wrap">
-      <svg viewBox="0 0 560 560" role="img" aria-label="Rodamiento de bolas de acero, vista frontal">
-        <defs>
-          <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="15"/></filter>
-          <linearGradient id="metalFace" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#F6F8FA"/>
-            <stop offset="45%" stop-color="#D6DBE1"/>
-            <stop offset="100%" stop-color="#87909B"/>
-          </linearGradient>
-          <radialGradient id="ballG" cx="33%" cy="30%" r="75%">
-            <stop offset="0%" stop-color="#FFFFFF"/>
-            <stop offset="30%" stop-color="#E9EEF3"/>
-            <stop offset="65%" stop-color="#A7B1BC"/>
-            <stop offset="90%" stop-color="#59626D"/>
-            <stop offset="100%" stop-color="#2E353D"/>
-          </radialGradient>
-          <radialGradient id="gapG" cx="46%" cy="42%" r="72%">
-            <stop offset="0%" stop-color="#39424D"/>
-            <stop offset="100%" stop-color="#10151B"/>
-          </radialGradient>
-          <radialGradient id="holeG" cx="50%" cy="50%" r="70%">
-            <stop offset="0%" stop-color="#2A323B"/>
-            <stop offset="100%" stop-color="#0A0E12"/>
-          </radialGradient>
-        </defs>
-
-        <!-- sombra sobre el fondo -->
-        <circle cx="282" cy="294" r="200" fill="rgba(6,32,21,.28)" filter="url(#softBlur)"/>
-
-        <!-- anillo exterior (banda de acero 199-235) -->
-        <circle cx="280" cy="280" r="217" fill="none" stroke="url(#metalFace)" stroke-width="36"/>
-        <path d="M 55 220 A 233 233 0 0 1 505 220" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="3.5"/>
-        <path d="M 55 340 A 233 233 0 0 0 505 340" fill="none" stroke="#2E3640" stroke-opacity=".5" stroke-width="3.5"/>
-
-        <!-- pista oscura donde corren las bolillas -->
-        <circle cx="280" cy="280" r="199" fill="url(#gapG)"/>
-
-        <!-- anillo interior (banda de acero 88-134) -->
-        <circle cx="280" cy="280" r="111" fill="none" stroke="url(#metalFace)" stroke-width="46"/>
-        <path d="M 151 245 A 134 134 0 0 1 409 245" fill="none" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="2.5"/>
-        <path d="M 151 315 A 134 134 0 0 0 409 315" fill="none" stroke="#2E3640" stroke-opacity=".45" stroke-width="2.5"/>
-
-        <!-- bolillas de acero girando -->
-        <g>
-          <animateTransform attributeName="transform" type="rotate" from="0 280 280" to="360 280 280" dur="18s" repeatCount="indefinite"/>
-          <!-- jaula separadora entre bolillas -->
-          <circle cx="280" cy="280" r="160" fill="none" stroke="#B7C1CA" stroke-width="7" stroke-dasharray="45 80" transform="rotate(14 280 280)" opacity=".8"/>
-          <g>
-            <circle cx="440" cy="280" r="26" fill="url(#ballG)"/>
-            <circle cx="393" cy="393" r="26" fill="url(#ballG)"/>
-            <circle cx="280" cy="440" r="26" fill="url(#ballG)"/>
-            <circle cx="167" cy="393" r="26" fill="url(#ballG)"/>
-            <circle cx="120" cy="280" r="26" fill="url(#ballG)"/>
-            <circle cx="167" cy="167" r="26" fill="url(#ballG)"/>
-            <circle cx="280" cy="120" r="26" fill="url(#ballG)"/>
-            <circle cx="393" cy="167" r="26" fill="url(#ballG)"/>
-          </g>
-        </g>
-
-        <!-- agujero central del rodamiento -->
-        <circle cx="280" cy="280" r="88" fill="url(#holeG)"/>
-        <path d="M 197 250 A 88 88 0 0 1 363 250" fill="none" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="2"/>
-        <path d="M 197 310 A 88 88 0 0 0 363 310" fill="none" stroke="#000000" stroke-opacity=".45" stroke-width="2"/>
-
-        <!-- anillo de acento verde de la marca -->
-        <circle cx="280" cy="280" r="243" fill="none" stroke="rgba(0,164,90,.22)" stroke-width="9"/>
-        <circle cx="280" cy="280" r="247" fill="none" stroke="rgba(0,164,90,.55)" stroke-width="1.6" stroke-dasharray="1 12"/>
-      </svg>
+            <div class="orbit-wrap">
+      <div class="bearing-stack" role="img" aria-label="Animación de un rodamiento de bolas de acero que se despieza en pista exterior, bolillas con jaula y pista interior, y vuelve a armarse">
+        <img class="bd bd-outer" src="rod-pista-exterior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
+        <img class="bd bd-balls" src="rod-bolillas.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
+        <img class="bd bd-inner" src="rod-pista-interior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
+      </div>
     </div>
   </div>
 </section>
@@ -695,6 +659,9 @@
   <div class="wrap footer-grid">
     <span class="mono">MJG RODAMIENTOS S.R.L. · DISTRIBUIDOR OFICIAL ISB</span>
     <span class="mono"><a href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a><br><a href="https://wa.me/5491136849435" target="_blank" rel="noopener">WhatsApp: 11 3684-9435</a></span>
+  </div>
+  <div class="wrap" style="margin-top:14px">
+    <span class="mono" style="font-size:10.5px;color:var(--dim);opacity:.8">Foto de rodamiento: R. Henrik Nilsson · Wikimedia Commons · CC BY 4.0</span>
   </div>
 </footer>
 
