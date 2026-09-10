@@ -176,47 +176,21 @@
   }
   .hud span b{color:var(--muted);font-weight:500}
 
-  /* ===== Hero: foto real de rodamiento, despiece 3D ===== */
+  /* ===== Hero: despiece animado con la foto real (lo maneja el scroll) ===== */
   .orbit-wrap{position:relative;display:flex;justify-content:center;align-items:center;min-width:0}
-  .bearing-stage{
-    position:relative;width:100%;max-width:440px;aspect-ratio:1/1;margin:0 auto;
-    perspective:2000px;display:grid;place-items:center;isolation:isolate;
+  .despiece{
+    position:relative;width:100%;max-width:520px;aspect-ratio:1280/720;margin:0 auto;
+    --dp:0;
+    transform:scale(calc(1 - var(--dp) * .1));
+    will-change:transform;
   }
-  .bearing-stage::after{
-    content:"";position:absolute;left:14%;right:14%;bottom:3%;height:8%;border-radius:50%;
-    background:radial-gradient(ellipse at center,rgba(6,32,21,.30),rgba(6,32,21,0) 70%);
-    filter:blur(7px);z-index:-1;
-  }
-  .bearing-tilt{width:100%;height:100%;transform-style:preserve-3d;animation:bpTilt 16s cubic-bezier(.45,.05,.3,1) infinite}
-  .bearing-disc{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:bpSpin 70s linear infinite}
-  .bearing-disc .bd{position:absolute;inset:0;width:100%;height:100%;display:block;will-change:transform}
-  .bd-outer{animation:bpOuter 16s cubic-bezier(.45,.05,.3,1) infinite}
-  .bd-balls{animation:bpBalls 16s cubic-bezier(.45,.05,.3,1) infinite}
-  .bd-inner{animation:bpInner 16s cubic-bezier(.45,.05,.3,1) infinite}
-  @keyframes bpTilt{
-    0%,4%{transform:rotateX(0deg)}
-    22%,58%{transform:rotateX(54deg)}
-    80%,100%{transform:rotateX(0deg)}
-  }
-  @keyframes bpSpin{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
-  @keyframes bpOuter{
-    0%,4%{transform:translateZ(0)}
-    22%,58%{transform:translateZ(96px)}
-    80%,100%{transform:translateZ(0)}
-  }
-  @keyframes bpBalls{
-    0%,4%{transform:rotateZ(0deg) translateZ(0)}
-    22%,58%{transform:rotateZ(24deg) translateZ(0)}
-    74%{transform:rotateZ(9deg) translateZ(0)}
-    80%,100%{transform:rotateZ(0deg) translateZ(0)}
-  }
-  @keyframes bpInner{
-    0%,4%{transform:rotateZ(0deg) translateZ(0)}
-    22%,58%{transform:rotateZ(-18deg) translateZ(-96px)}
-    80%,100%{transform:rotateZ(0deg) translateZ(0)}
-  }
-  @media(max-width:640px){.bearing-stage{max-width:min(340px,86%)}}
-  @media(prefers-reduced-motion:reduce){.bearing-tilt,.bearing-disc,.bd-outer,.bd-balls,.bd-inner{animation:none}}
+  .dpiece{position:absolute;will-change:transform}
+  .dpiece img{width:100%;height:auto;display:block;filter:drop-shadow(0 16px 24px rgba(6,32,21,.18));animation:dzSpin 90s linear infinite}
+  .pz-a{left:1.25%;top:9.72%;width:45.94%;transform:translate(calc(var(--dp) * -15%),calc(var(--dp) * -7%)) rotate(calc(var(--dp) * -9deg))}
+  .pz-b{left:56.09%;top:25.00%;width:42.34%;transform:translate(calc(var(--dp) * 15%),calc(var(--dp) * 7%)) rotate(calc(var(--dp) * 9deg))}
+  @keyframes dzSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  @media(max-width:640px){.despiece{max-width:min(360px,94%)}}
+  @media(prefers-reduced-motion:reduce){.dpiece img{animation:none}}
 
   /* ===== Secciones genéricas ===== */
   section{padding:80px 0;position:relative}
@@ -489,14 +463,9 @@
     </div>
 
             <div class="orbit-wrap">
-      <div class="bearing-stage" role="img" aria-label="Animación en vista explosionada de un rodamiento de bolas de acero: la pista exterior, las bolillas con jaula y la pista interior se separan y vuelven a armarse">
-        <div class="bearing-tilt">
-          <div class="bearing-disc">
-            <img class="bd bd-outer" src="rod-pista-exterior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
-            <img class="bd bd-balls" src="rod-bolillas.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
-            <img class="bd bd-inner" src="rod-pista-interior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
-          </div>
-        </div>
+      <div class="despiece" role="img" aria-label="Despiece animado de un rodamiento: las piezas metálicas se separan y después se vuelven a armar">
+        <div class="dpiece pz-a"><img src="despiece-pieza-a.webp" alt="" aria-hidden="true" width="588" height="477" fetchpriority="high"></div>
+        <div class="dpiece pz-b"><img src="despiece-pieza-b.webp" alt="" aria-hidden="true" width="542" height="438"></div>
       </div>
     </div>
   </div>
@@ -676,9 +645,6 @@
     <span class="mono">MJG RODAMIENTOS S.R.L. · DISTRIBUIDOR OFICIAL ISB</span>
     <span class="mono"><a href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a><br><a href="https://wa.me/5491136849435" target="_blank" rel="noopener">WhatsApp: 11 3684-9435</a></span>
   </div>
-  <div class="wrap" style="margin-top:14px">
-    <span class="mono" style="font-size:10.5px;color:var(--dim);opacity:.8">Foto de rodamiento: R. Henrik Nilsson · Wikimedia Commons · CC BY 4.0</span>
-  </div>
 </footer>
 
 <!-- ============ BOTÓN FLOTANTE ============ -->
@@ -693,6 +659,27 @@
     var fl = document.querySelector(".float-wa");
     if (fl) fl.style.display = "none";
   }
+
+  // Despiece manejado por el scroll: al bajar la pagina se despieza, al subir se vuelve a armar.
+  (function () {
+    var el = document.querySelector(".despiece");
+    if (!el) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight || 800;
+      var d = Math.max(320, vh * 0.7);
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var p = y / d;
+      if (p < 0) p = 0; else if (p > 1) p = 1;
+      el.style.setProperty("--dp", p.toFixed(4));
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  })();
 </script>
 </body>
 </html>
