@@ -176,26 +176,10 @@
   }
   .hud span b{color:var(--muted);font-weight:500}
 
-  /* ===== Hero: despiece 3D del rodamiento, manejado por el scroll ===== */
+  /* ===== Hero: foto del rodamiento ===== */
   .orbit-wrap{position:relative;display:flex;justify-content:center;align-items:center;min-width:0}
-  .bearing-stage{
-    position:relative;width:100%;max-width:440px;aspect-ratio:1/1;margin:0 auto;
-    perspective:2000px;display:grid;place-items:center;isolation:isolate;--dp:0;
-  }
-  .bearing-stage::after{
-    content:"";position:absolute;left:14%;right:14%;bottom:3%;height:8%;border-radius:50%;
-    background:radial-gradient(ellipse at center,rgba(6,32,21,.32),rgba(6,32,21,0) 70%);
-    filter:blur(7px);z-index:-1;opacity:calc(.35 + var(--dp) * .65);
-  }
-  .bearing-tilt{width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(calc(var(--dp) * 56deg))}
-  .bearing-disc{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:bpSpin 70s linear infinite}
-  .bearing-disc .bd{position:absolute;inset:0;width:100%;height:100%;display:block;will-change:transform}
-  .bd-outer{transform:translateZ(calc(var(--dp) * 112px))}
-  .bd-balls{transform:rotateZ(calc(var(--dp) * 26deg))}
-  .bd-inner{transform:translateZ(calc(var(--dp) * -112px)) rotateZ(calc(var(--dp) * -20deg))}
-  @keyframes bpSpin{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
-  @media(max-width:640px){.bearing-stage{max-width:min(340px,86%)}}
-  @media(prefers-reduced-motion:reduce){.bearing-disc{animation:none}}
+  .orbit-wrap img.hero-foto{display:block;width:100%;max-width:540px;height:auto}
+  @media(max-width:640px){.orbit-wrap img.hero-foto{max-width:min(380px,94%)}}
 
   /* ===== Secciones genéricas ===== */
   section{padding:80px 0;position:relative}
@@ -468,15 +452,7 @@
     </div>
 
             <div class="orbit-wrap">
-      <div class="bearing-stage" role="img" aria-label="Despiece animado: al bajar la página el rodamiento se abre en pista exterior, bolillas con jaula y pista interior, y al subir se vuelve a armar">
-        <div class="bearing-tilt">
-          <div class="bearing-disc">
-            <img class="bd bd-outer" src="rod-pista-exterior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
-            <img class="bd bd-balls" src="rod-bolillas.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
-            <img class="bd bd-inner" src="rod-pista-interior.webp" width="1100" height="1100" alt="" aria-hidden="true" loading="eager">
-          </div>
-        </div>
-      </div>
+      <img class="hero-foto" src="hero-foto.jpg" alt="Rodamiento: pistas y piezas metálicas de acero" width="1280" height="720" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -655,9 +631,6 @@
     <span class="mono">MJG RODAMIENTOS S.R.L. · DISTRIBUIDOR OFICIAL ISB</span>
     <span class="mono"><a href="mailto:ventas@mjgrodamientos.com.ar">ventas@mjgrodamientos.com.ar</a><br><a href="https://wa.me/5491136849435" target="_blank" rel="noopener">WhatsApp: 11 3684-9435</a></span>
   </div>
-  <div class="wrap" style="margin-top:14px">
-    <span class="mono" style="font-size:10.5px;color:var(--dim);opacity:.8">Foto del rodamiento: R. Henrik Nilsson · Wikimedia Commons · CC BY 4.0</span>
-  </div>
 </footer>
 
 <!-- ============ BOTÓN FLOTANTE ============ -->
@@ -672,27 +645,6 @@
     var fl = document.querySelector(".float-wa");
     if (fl) fl.style.display = "none";
   }
-
-  // Despiece manejado por el scroll: al bajar la pagina se despieza, al subir se vuelve a armar.
-  (function () {
-    var el = document.querySelector(".bearing-stage");
-    if (!el) return;
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var ticking = false;
-    function update() {
-      ticking = false;
-      var vh = window.innerHeight || document.documentElement.clientHeight || 800;
-      var d = Math.max(320, vh * 0.7);
-      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
-      var p = y / d;
-      if (p < 0) p = 0; else if (p > 1) p = 1;
-      el.style.setProperty("--dp", p.toFixed(4));
-    }
-    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    update();
-  })();
 </script>
 </body>
 </html>
