@@ -1,0 +1,181 @@
+/* ==========================================================================
+   MJG Rodamientos · contenido.css
+   Confianza (mjgc-) + FAQ (mjgf-)
+   Reglas:
+   - Sólo selectores con prefijo propio. Nunca selectores globales.
+   - Reutiliza los tokens de :root del index (NO los redefine).
+   - Reutiliza clases del sistema base: .wrap .sec-head .sec-no .grad .btn-wa
+   ========================================================================== */
+
+/* ===================== 1. BANDA DE CONFIANZA (mjgc-) ===================== */
+.mjgc-band{
+  background:linear-gradient(135deg,var(--deep) 0%,var(--deep-2) 100%);
+  border-top:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  padding:24px 0;
+}
+
+/* mobile-first: chips 1 col -> 2 cols (casi todo celular) -> 4 cols (desktop) */
+.mjgc-items{list-style:none;display:grid;grid-template-columns:1fr;gap:9px}
+@media (min-width:360px){.mjgc-items{grid-template-columns:1fr 1fr}}
+@media (min-width:860px){.mjgc-items{grid-template-columns:repeat(4,1fr);gap:0}}
+
+.mjgc-item{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:12px 13px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+}
+@media (min-width:860px){
+  .mjgc-item{
+    background:none;border:0;border-radius:0;
+    border-left:1px solid rgba(255,255,255,.12);
+    padding:4px 20px;
+  }
+  .mjgc-item:first-child{border-left:0;padding-left:0}
+  .mjgc-item:last-child{padding-right:0}
+}
+.mjgc-ico{
+  flex:0 0 auto;width:30px;height:30px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(43,211,138,.12);
+  border:1px solid rgba(43,211,138,.30);
+  color:var(--neon-grad);
+}
+.mjgc-ico svg{width:16px;height:16px;display:block}
+.mjgc-item h3{
+  font-size:.92rem;font-weight:600;color:#fff;
+  line-height:1.3;margin:0 0 2px;
+}
+.mjgc-item p{
+  font-size:.8rem;line-height:1.4;margin:0;
+  color:rgba(255,255,255,.70);
+}
+@media (min-width:860px){
+  .mjgc-ico{width:34px;height:34px}
+  .mjgc-ico svg{width:17px;height:17px}
+  .mjgc-item h3{font-size:.98rem;line-height:1.35;margin-bottom:3px}
+  .mjgc-item p{font-size:.86rem;line-height:1.5}
+}
+
+/* ===================== 2. GUÍA "¿QUÉ PIEZA NECESITO?" (mjgc-) =========== */
+.mjgc-guia{
+  padding:80px 0;
+  background:linear-gradient(180deg,#fff 0%,var(--bg-2) 100%);
+}
+.mjgc-formas{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:820px){.mjgc-formas{grid-template-columns:repeat(3,1fr)}}
+
+.mjgc-forma{
+  background:var(--panel);
+  border:1px solid var(--line-soft);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  box-shadow:0 4px 16px rgba(6,32,21,.05);
+  display:flex;flex-direction:column;gap:10px;
+}
+.mjgc-forma-k{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--neon);
+  display:flex;align-items:center;gap:9px;
+}
+.mjgc-forma-k::before{content:"";width:20px;height:1.5px;background:var(--neon);opacity:.7}
+.mjgc-forma h3{font-size:1.12rem;color:var(--ink);margin:0}
+.mjgc-forma p{color:var(--muted);font-size:.94rem;margin:0}
+.mjgc-forma p b{color:var(--ink);font-weight:600}
+
+.mjgc-specs{
+  list-style:none;margin:4px 0 0;display:grid;gap:0;
+  border:1px solid var(--line-soft);border-radius:12px;
+  overflow:hidden;background:var(--panel-2);
+}
+.mjgc-specs li{
+  display:flex;align-items:baseline;gap:12px;
+  padding:9px 13px;border-top:1px dashed var(--line);
+  font-family:var(--mono);font-size:12.5px;color:var(--muted);
+}
+.mjgc-specs li:first-child{border-top:0}
+.mjgc-specs li b{color:var(--neon);font-weight:600;min-width:46px}
+
+.mjgc-cta{
+  margin-top:30px;padding:26px;
+  border-radius:var(--radius);
+  background:var(--panel);border:1px solid var(--line);
+  box-shadow:0 10px 34px rgba(6,32,21,.08);
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:14px 20px;justify-content:space-between;
+}
+.mjgc-cta-txt{max-width:56ch}
+.mjgc-cta-txt h3{font-size:1.08rem;color:var(--ink);margin:0 0 4px}
+.mjgc-cta-txt p{color:var(--muted);font-size:.94rem;margin:0}
+.mjgc-cta-alt{
+  width:100%;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;color:var(--dim);margin:0;
+}
+.mjgc-cta-alt a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.mjgc-cta-alt a:hover{color:var(--neon);border-color:var(--neon)}
+
+/* ===================== 3. FAQ (mjgf-) ==================================== */
+.mjgf{padding:80px 0;background:#fff}
+.mjgf-list{display:grid;gap:12px;max-width:900px}
+
+.mjgf-item{
+  background:var(--panel);
+  border:1px solid var(--line-soft);
+  border-radius:14px;overflow:hidden;
+  transition:border-color .15s ease,box-shadow .15s ease;
+}
+.mjgf-item[open]{
+  border-color:rgba(0,164,90,.38);
+  box-shadow:0 12px 30px rgba(6,32,21,.07);
+}
+.mjgf-q{
+  cursor:pointer;list-style:none;
+  display:flex;align-items:center;gap:14px;
+  padding:17px 20px;
+  font-weight:600;color:var(--ink);font-size:1.02rem;line-height:1.4;
+}
+.mjgf-q::-webkit-details-marker{display:none}
+.mjgf-q::marker{content:""}
+.mjgf-q-n{
+  flex:0 0 auto;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.14em;color:var(--neon);
+}
+.mjgf-q::after{
+  content:"+";margin-left:auto;flex:0 0 auto;
+  font-family:var(--mono);font-size:1.35rem;line-height:1;
+  color:var(--neon);transition:transform .18s ease;
+}
+.mjgf-item[open] .mjgf-q::after{transform:rotate(45deg)}
+
+.mjgf-a{padding:0 20px 20px;color:var(--muted);font-size:.95rem;line-height:1.65}
+.mjgf-a p{margin:0 0 10px}
+.mjgf-a p:last-child{margin:0}
+.mjgf-a p b{color:var(--ink);font-weight:600}
+.mjgf-a a{
+  color:var(--neon);font-weight:500;text-decoration:none;
+  border-bottom:1px solid rgba(0,164,90,.35);
+}
+.mjgf-a a:hover{border-color:var(--neon)}
+
+.mjgf-ask{
+  margin-top:22px;max-width:900px;padding:20px 24px;
+  border-radius:14px;background:var(--panel-2);
+  border:1px solid var(--line-soft);
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:12px 22px;justify-content:space-between;
+}
+.mjgf-ask p{margin:0;color:var(--muted);font-size:.95rem}
+.mjgf-ask p b{color:var(--ink);font-weight:600}
+.mjgf-link{
+  font-family:var(--mono);font-size:12px;color:var(--neon);
+  text-decoration:none;border-bottom:1px solid rgba(0,164,90,.35);
+  white-space:nowrap;
+}
+.mjgf-link:hover{border-color:var(--neon)}
+
+@media (prefers-reduced-motion:reduce){
+  .mjgf-item{transition:none}
+  .mjgf-q::after{transition:none}
+}
