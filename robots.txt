@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# MJG Rodamientos S.R.L.
+Sitemap: https://mjgrodamientos.com.ar/sitemap.xml
