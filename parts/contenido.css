@@ -201,3 +201,10 @@
 .mjgc-cap-a svg{width:19px;height:19px;flex:none}
 .mjgc-cap-a:hover{filter:brightness(1.06)}
 .mjgc-cap-note{margin:0;color:var(--dim);font-size:.9rem}
+
+/* ---- Zona de cobertura ---- */
+.mjgc-zonas{background:#fff;border-top:1px solid var(--line-soft);padding:30px 0 32px}
+.mjgc-zonas-t{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:0 0 14px}
+.mjgc-zonas-l{list-style:none;display:flex;flex-wrap:wrap;gap:10px 12px;margin:0 0 14px;padding:0}
+.mjgc-zonas-l li{font-family:var(--sans);font-weight:600;font-size:1.02rem;letter-spacing:.02em;color:var(--deep);background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:7px 16px}
+.mjgc-zonas-n{margin:0;color:var(--muted);font-size:.92rem}
