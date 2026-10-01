@@ -179,3 +179,12 @@
   .mjgf-item{transition:none}
   .mjgf-q::after{transition:none}
 }
+
+/* ---- Franja de marcas ---- */
+.mjgc-marcas{background:#fff;border-bottom:1px solid var(--line-soft);padding:24px 0 26px}
+.mjgc-marcas-t{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:0 0 14px}
+.mjgc-marcas-l{list-style:none;display:flex;flex-wrap:wrap;gap:10px 12px;margin:0 0 14px;padding:0}
+.mjgc-marcas-l li{font-family:var(--sans);font-weight:600;font-size:1.02rem;letter-spacing:.02em;color:var(--deep);background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:7px 16px}
+.mjgc-marcas-n{margin:0;color:var(--muted);font-size:.92rem}
+.mjgc-marcas-n a{color:var(--neon);text-decoration:none;font-weight:600}
+.mjgc-marcas-n a:hover{text-decoration:underline}
