@@ -60,10 +60,19 @@ button{font-family:inherit}
 .tel:hover{color:#fff}
 .burger{display:none;width:42px;height:42px;border:1px solid var(--ln);border-radius:8px;
   background:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer}
-.burger span{width:17px;height:1.5px;background:var(--tx);display:block;transition:var(--ease)}
-.mnav{display:none;border-top:1px solid var(--ln);background:rgba(8,11,10,.98)}
+.burger span{width:17px;height:1.5px;background:var(--tx);display:block;transition:var(--ease);transform-origin:center}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mnav{display:none;border-top:1px solid var(--ln);background:rgba(8,11,10,.98);
+  backdrop-filter:blur(14px);max-height:calc(100dvh - 64px);overflow-y:auto;
+  box-shadow:0 22px 44px rgba(0,0,0,.55)}
+.mnav p.mnav-t{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx2);
+  margin:18px 0 4px;font-weight:600}
 .mnav a{display:block;padding:15px 0;border-bottom:1px solid var(--ln2);font-size:16px;color:var(--tx)}
-.mnav a:last-child{border-bottom:0}
+.mnav a:last-of-type{border-bottom:0}
+.mnav .btn{margin:16px 0 6px}
+.mnav[hidden]{display:none}
 
 /* hero */
 .hero{position:relative;padding:150px 0 clamp(60px,7vw,100px);overflow:hidden}
@@ -225,7 +234,7 @@ button{font-family:inherit}
   .burger{display:flex}
   .hdr-in{height:64px;gap:14px}
   .hdr-act{margin-left:auto}
-  .mnav{display:block}
+  .mnav:not([hidden]){display:block}
   .hero{padding-top:110px}
   .hero-in,.isb,.find{grid-template-columns:1fr}
   .bens{grid-template-columns:repeat(2,1fr)}

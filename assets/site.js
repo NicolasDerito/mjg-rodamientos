@@ -17,16 +17,31 @@
   var burger = document.getElementById("burger");
   var mnav = document.getElementById("mnav");
   if (burger && mnav) {
+    var cerrarMenu = function () {
+      mnav.setAttribute("hidden", "");
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-label", "Abrir menú");
+    };
+    var abrirMenu = function () {
+      mnav.removeAttribute("hidden");
+      burger.setAttribute("aria-expanded", "true");
+      burger.setAttribute("aria-label", "Cerrar menú");
+    };
     burger.addEventListener("click", function () {
-      var abrir = mnav.hasAttribute("hidden");
-      if (abrir) mnav.removeAttribute("hidden"); else mnav.setAttribute("hidden", "");
-      burger.setAttribute("aria-expanded", abrir ? "true" : "false");
+      if (mnav.hasAttribute("hidden")) abrirMenu(); else cerrarMenu();
     });
     mnav.addEventListener("click", function (e) {
-      if (e.target && e.target.tagName === "A") {
-        mnav.setAttribute("hidden", "");
-        burger.setAttribute("aria-expanded", "false");
-      }
+      if (e.target && e.target.tagName === "A") cerrarMenu();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !mnav.hasAttribute("hidden")) { cerrarMenu(); burger.focus(); }
+    });
+    document.addEventListener("click", function (e) {
+      if (mnav.hasAttribute("hidden")) return;
+      if (!mnav.contains(e.target) && !burger.contains(e.target)) cerrarMenu();
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 980) cerrarMenu();
     });
   }
 
