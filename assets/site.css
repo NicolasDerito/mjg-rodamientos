@@ -110,9 +110,11 @@ button{font-family:inherit}
 .brand{border:1px solid var(--ln);border-radius:8px;padding:16px 22px;font-weight:700;
   font-size:16px;letter-spacing:.02em;color:var(--steel);background:var(--card);transition:var(--ease)}
 .brand:hover{color:#fff;border-color:rgba(0,184,74,.45)}
-.brand--isb{border-color:rgba(0,184,74,.5);color:#fff;background:rgba(0,184,74,.09);position:relative;padding-bottom:26px}
-.brand--isb small{position:absolute;left:22px;bottom:9px;font-size:10px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--grn);font-weight:600}
+.brand--isb{border-color:rgba(0,184,74,.5);color:#fff;background:rgba(0,184,74,.09);
+  display:flex;flex-direction:column;gap:3px;padding:14px 22px}
+.brand--isb span{font-size:17px;line-height:1.1}
+.brand--isb small{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--grn);
+  font-weight:600;white-space:nowrap;line-height:1.2}
 
 /* categorias */
 .cats{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:44px}
