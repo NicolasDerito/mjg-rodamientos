@@ -262,3 +262,13 @@ button{font-family:inherit}
   .rv{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
 }
+
+/* ==== paginas internas y detalles del mockup ==== */
+.sec--page{padding-top:clamp(112px,12vw,152px)}
+.cta-f.pg{padding-top:clamp(120px,13vw,172px)}
+.nav a[aria-current="page"]{color:#fff}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--grn)}
+.mnav a[aria-current="page"]{color:var(--grn)}
+.btn--p::after{content:"\2192";margin-left:9px;display:inline-block;transition:transform .24s cubic-bezier(.4,0,.2,1)}
+.btn--p:hover::after{transform:translateX(3px)}
+
