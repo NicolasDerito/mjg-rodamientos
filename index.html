@@ -25,18 +25,9 @@
     .message{font-family:Arial,sans-serif;color:var(--muted);font-size:16px;line-height:1.75;max-width:34ch;margin:0}
     .status{display:flex;align-items:center;gap:11px;margin-top:36px;font:11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#d6ddd7}
     .dot{width:8px;height:8px;border-radius:50%;background:#8eb68b;box-shadow:0 0 0 5px rgba(142,182,139,.13);animation:pulse 2s infinite}
-    .art{position:relative;overflow:hidden;border-left:1px solid var(--line);display:grid;place-items:center;background:linear-gradient(155deg,rgba(208,161,93,.10),transparent 43%)}
-    .orbit{position:absolute;width:min(74%,390px);aspect-ratio:1;border:1px solid rgba(208,161,93,.43);border-radius:50%;box-shadow:0 0 0 30px rgba(208,161,93,.025),0 0 0 72px rgba(208,161,93,.02)}
-    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(208,161,93,.2);border-radius:50%;inset:13%;transform:rotate(45deg) scaleX(.44)}
-    .orbit:after{transform:rotate(-45deg) scaleX(.44)}
-    .bearing{position:relative;width:min(44%,220px);aspect-ratio:1;border:2px solid var(--accent);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 60px rgba(208,161,93,.12),inset 0 0 44px rgba(208,161,93,.06)}
-    .bearing:before,.bearing:after{content:"";position:absolute;border:1px solid rgba(208,161,93,.64);border-radius:50%}
-    .bearing:before{inset:17%}.bearing:after{inset:36%;background:rgba(208,161,93,.12)}
-    .bearing span{z-index:1;font:10px Arial,sans-serif;letter-spacing:.22em;color:var(--accent);text-transform:uppercase}
-    .caption{position:absolute;bottom:30px;left:0;right:0;text-align:center;font:10px Arial,sans-serif;letter-spacing:.18em;color:rgba(246,245,239,.45);text-transform:uppercase}
     footer{position:fixed;bottom:19px;left:0;right:0;text-align:center;font:10px Arial,sans-serif;letter-spacing:.12em;color:rgba(246,245,239,.43);text-transform:uppercase}
     @keyframes pulse{50%{box-shadow:0 0 0 9px rgba(142,182,139,0)}}
-    @media(max-width:680px){body{padding:18px 16px 42px}.card{min-height:min(780px,calc(100vh - 60px));grid-template-columns:1fr;grid-template-rows:1fr minmax(210px,.72fr)}.copy{padding:32px 28px 24px}.brand{margin-bottom:42px}.brand img{width:220px}.art{border-left:0;border-top:1px solid var(--line)}.orbit{width:min(56%,230px)}.bearing{width:min(31%,130px)}.caption{bottom:14px}h1{max-width:10ch}}
+    @media(max-width:680px){body{padding:18px 16px 42px}.card{min-height:min(620px,calc(100vh - 60px));grid-template-columns:1fr;grid-template-rows:1fr}.copy{padding:32px 28px 24px}.brand{margin-bottom:42px}.brand img{width:220px}h1{max-width:10ch}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
@@ -44,17 +35,8 @@
   <main class="card" aria-labelledby="title">
     <section class="copy">
       <div class="brand"><img src="mjg-logo.jpg" alt="MJG Rodamientos S.R.L."></div>
-      <div class="eyebrow">Sitio en mantenimiento</div>
-      <h1 id="title">Estamos trabajando <em>para usted.</em></h1>
-      <p class="message">Estamos realizando mejoras para brindarle una mejor experiencia. Volveremos a estar en línea muy pronto.</p>
-      <div class="status"><span class="dot" aria-hidden="true"></span>Trabajando para volver pronto</div>
+      <h1 id="title">Sitio en <em>mantenimiento.</em></h1>
     </section>
-    <aside class="art" aria-hidden="true">
-      <div class="orbit"></div>
-      <div class="bearing"><span>MJG · precisión</span></div>
-      <div class="caption">Rodamientos · Transmisión · Industria</div>
-    </aside>
   </main>
-  <footer>MJG Rodamientos S.R.L.</footer>
 </body>
 </html>
